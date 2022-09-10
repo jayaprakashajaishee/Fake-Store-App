@@ -14,8 +14,6 @@
 }
 
 .products {
-  background-color: var(--secondary-color);
-  overflow: auto;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -31,4 +29,13 @@
   width: 97%;
   box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
   display: flex;
+}
+
+.categories {
+  width: 100%;
+  height: 100%;
+  background-color: var(--secondary-color);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
