@@ -3,7 +3,7 @@ import Checkbox from "@mui/material/Checkbox";
 import FormGroup from "@mui/material/FormGroup";
 import FormControlLabel from "@mui/material/FormControlLabel";
 import { useDispatch, useSelector } from "react-redux";
-import { onGetCategories } from "../redux/actions";
+import { onGetCategories, onApplyCategoryFilter } from "../redux/actions";
 
 function Categories() {
   const dispatch = useDispatch();
@@ -12,7 +12,9 @@ function Categories() {
   }, [dispatch]);
 
   const Categories = useSelector((state) => state.categories);
+
   const { loading, error, categories } = Categories;
+
   return loading ? (
     <div>loading...</div>
   ) : error ? (
@@ -26,7 +28,11 @@ function Categories() {
             <FormControlLabel
               control={
                 <Checkbox
-                  onChange={(e) => console.log(e.target.name)}
+                  onChange={(e) =>
+                    dispatch(
+                      onApplyCategoryFilter(e.target.name, e.target.checked)
+                    )
+                  }
                   name={category}
                 />
               }

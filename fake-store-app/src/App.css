@@ -39,3 +39,15 @@
   flex-direction: column;
   align-items: center;
 }
+
+.searchBar {
+  height: 30px;
+  width: 400px;
+  border-radius: 10px;
+  border: none;
+  font-size: 20px;
+}
+
+.searchBar:focus {
+  outline: 0;
+}

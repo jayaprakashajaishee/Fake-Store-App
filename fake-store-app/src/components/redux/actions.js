@@ -7,6 +7,8 @@ import {
   CATEGORIES_REQUEST,
   CATEGORIES_REQUEST_SUCCESS,
   CATEGORIES_REQUEST_FAIL,
+  CATEGORY_FILTER_ADD,
+  CATEGORY_FILTER_REMOVE,
 } from "./constants";
 
 const onGetProducts = () => (dispatch) => {
@@ -45,4 +47,10 @@ const onGetCategories = () => (dispatch) => {
     });
 };
 
-export { onGetProducts, onGetCategories };
+const onApplyCategoryFilter = (category, checked) => (dispatch) => {
+  checked
+    ? dispatch({ type: CATEGORY_FILTER_ADD, payload: category })
+    : dispatch({ type: CATEGORY_FILTER_REMOVE, payload: category });
+};
+
+export { onGetProducts, onGetCategories, onApplyCategoryFilter };

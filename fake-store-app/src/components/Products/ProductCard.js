@@ -1,4 +1,3 @@
-import { maxWidth } from "@mui/system";
 import React from "react";
 
 function ProductCard({ product }) {
