@@ -9,6 +9,8 @@ import {
   CATEGORIES_REQUEST_FAIL,
   CATEGORY_FILTER_ADD,
   CATEGORY_FILTER_REMOVE,
+  SET_SEARCH,
+  CLEAR_SEARCH,
 } from "./constants";
 
 const onGetProducts = () => (dispatch) => {
@@ -53,4 +55,18 @@ const onApplyCategoryFilter = (category, checked) => (dispatch) => {
     : dispatch({ type: CATEGORY_FILTER_REMOVE, payload: category });
 };
 
-export { onGetProducts, onGetCategories, onApplyCategoryFilter };
+const onSearch = (search) => (dispatch) => {
+  dispatch({ type: SET_SEARCH, payload: search });
+};
+
+const onClearSearch = () => (dispatch) => {
+  dispatch({ type: CLEAR_SEARCH });
+};
+
+export {
+  onGetProducts,
+  onGetCategories,
+  onApplyCategoryFilter,
+  onSearch,
+  onClearSearch,
+};
