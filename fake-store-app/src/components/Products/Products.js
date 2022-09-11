@@ -16,7 +16,7 @@ function Products() {
   const { loading, error, products } = Products;
 
   const [currentPage, setCurrentPage] = useState(1);
-  const [productsPerPage, setProductsPerPage] = useState(5);
+  const productsPerPage = 5;
 
   const categoryFilteredProducts =
     CategoryFilter.length === 0
