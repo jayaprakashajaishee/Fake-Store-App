@@ -1,20 +1,20 @@
 import "./App.css";
 import Navbar from "./components/Navbar/Navbar";
-import Products from "./components/Products/Products";
-import Categories from "./components/categories/Categories";
+import HomePage from "./pages/HomePage";
+import ProductPage from "./pages/ProductPage";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+
 function App() {
   return (
-    <div style={{ height: "100vh" }}>
-      <Navbar />
-      <div style={{ display: "flex" }}>
-        <div style={{ width: "20%" }}>
-          <Categories />
-        </div>
-        <div style={{ width: "100%" }}>
-          <Products />
-        </div>
+    <BrowserRouter>
+      <div style={{ height: "100vh" }}>
+        <Navbar />
+        <Routes>
+          <Route path="/" element={<HomePage />} />
+          <Route path="/product" element={<ProductPage />} />
+        </Routes>
       </div>
-    </div>
+    </BrowserRouter>
   );
 }
 

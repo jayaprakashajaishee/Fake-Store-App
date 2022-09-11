@@ -31,6 +31,10 @@
   display: flex;
 }
 
+.productCard:hover {
+  cursor: pointer;
+}
+
 .categories {
   width: 100%;
   height: 100%;
@@ -50,4 +54,13 @@
 
 .searchBar:focus {
   outline: 0;
+}
+
+.homeButton {
+  color: white;
+  margin-left: 20px;
+}
+
+.homeButton:hover {
+  color: #F5A962
 }
