@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import ProductCard from "./ProductCard";
 import { onGetProducts } from "../redux/actions";
 import { useDispatch, useSelector } from "react-redux";
+import PaginationComponent from "../Pagination/PaginationComponent";
 
 function Products() {
   const dispatch = useDispatch();
@@ -14,6 +15,9 @@ function Products() {
   const search = useSelector((state) => state.search);
   const { loading, error, products } = Products;
 
+  const [currentPage, setCurrentPage] = useState(1);
+  const [productsPerPage, setProductsPerPage] = useState(5);
+
   const categoryFilteredProducts =
     CategoryFilter.length === 0
       ? products
@@ -25,6 +29,16 @@ function Products() {
       )
     : [];
 
+  //Get current posts
+  const indexOfLastProduct = currentPage * productsPerPage;
+  const indexOfFirstProduct = indexOfLastProduct - productsPerPage;
+  const currentProducts = searchResult.slice(
+    indexOfFirstProduct,
+    indexOfLastProduct
+  );
+
+  const handlePageChange = (event, value) => setCurrentPage(value);
+
   return loading ? (
     <div>Loading...</div>
   ) : error ? (
@@ -32,9 +46,15 @@ function Products() {
   ) : (
     <div className="products" style={{ flexGrow: 1 }}>
       {products &&
-        searchResult.map((product, i) => (
+        currentProducts.map((product, i) => (
           <ProductCard key={i} product={product} />
         ))}
+      <PaginationComponent
+        productsPerPage={productsPerPage}
+        totalProducts={searchResult.length}
+        handlePageChange={handlePageChange}
+        currentPage={currentPage}
+      />
     </div>
   );
 }
