@@ -3,6 +3,7 @@ import { Typography } from "@mui/material";
 import { Link } from "react-router-dom";
 import Rating from "@mui/material/Rating";
 import Tooltip from "@mui/material/Tooltip";
+import RatingComponent from "../Rating/RatingComponent";
 
 function ProductCard({ product }) {
   return (
@@ -37,21 +38,10 @@ function ProductCard({ product }) {
           {product.title}
         </Typography>
         <p>category: {product.category}</p>
-        <Tooltip
-          title={`${product.rating.rate} out of 5 from ${product.rating.count} ratings`}
-          placement="left"
-        >
-          <div style={{ display: "flex", alignItems: "center" }}>
-            <Rating
-              name="half-rating-read"
-              precision={0.1}
-              value={product.rating.rate}
-              readOnly
-              sx={{ marginRight: "5px" }}
-            />
-            <p style={{ color: "#3C8DAD" }}>{product.rating.count}</p>
-          </div>
-        </Tooltip>
+        <RatingComponent
+          rate={product.rating.rate}
+          count={product.rating.count}
+        />
         <h1>₹ {product.price}</h1>
       </div>
     </Link>
