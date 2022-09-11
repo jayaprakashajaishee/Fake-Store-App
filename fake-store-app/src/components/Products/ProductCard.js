@@ -43,6 +43,7 @@ function ProductCard({ product }) {
           <div style={{ display: "flex", alignItems: "center" }}>
             <Rating
               name="half-rating-read"
+              precision={0.1}
               value={product.rating.rate}
               readOnly
               sx={{ marginRight: "5px" }}
