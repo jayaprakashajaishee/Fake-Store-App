@@ -15,7 +15,7 @@ function ProductPage() {
         setProduct("error");
         console.log(error);
       });
-  }, []);
+  }, [id]);
   return product === "loading" ? (
     <div>Loading...</div>
   ) : product === "error" ? (

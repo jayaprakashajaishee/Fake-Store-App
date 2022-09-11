@@ -1,8 +1,6 @@
 import React from "react";
 import { Typography } from "@mui/material";
 import { Link } from "react-router-dom";
-import Rating from "@mui/material/Rating";
-import Tooltip from "@mui/material/Tooltip";
 import RatingComponent from "../Rating/RatingComponent";
 
 function ProductCard({ product }) {
