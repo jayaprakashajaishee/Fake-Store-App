@@ -23,6 +23,7 @@ function ProductCard({ product }) {
       >
         <img
           src={product.image}
+          alt={product.title}
           style={{
             maxWidth: "100%",
             maxHeight: "100%",

@@ -7,7 +7,7 @@ function ProductPage() {
   const { id } = useParams();
   const Products = useSelector((state) => state.products);
   const { products } = Products;
-  let product = products.filter((product) => product.id == id)[0];
+  let product = products.filter((product) => product.id === Number(id))[0];
   console.log(product);
   return (
     <div style={{ height: "calc(100vh - 60px)", display: "flex" }}>
