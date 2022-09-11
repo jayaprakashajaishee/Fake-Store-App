@@ -1,15 +1,26 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
+import axios from "axios";
 import { useParams } from "react-router-dom";
-import { useSelector } from "react-redux";
 import { Button } from "@mui/material";
 import RatingComponent from "../components/Rating/RatingComponent";
 
 function ProductPage() {
   const { id } = useParams();
-  const Products = useSelector((state) => state.products);
-  const { products } = Products;
-  let product = products.filter((product) => product.id === Number(id))[0];
-  return (
+  const [product, setProduct] = useState("loading");
+  useEffect(() => {
+    axios
+      .get(`https://fakestoreapi.com/products/${id}`)
+      .then((res) => setProduct(res.data))
+      .catch((error) => {
+        setProduct("error");
+        console.log(error);
+      });
+  }, []);
+  return product === "loading" ? (
+    <div>Loading...</div>
+  ) : product === "error" ? (
+    <div>Error...</div>
+  ) : (
     <div style={{ height: "calc(100vh - 60px)", display: "flex" }}>
       <div
         style={{
