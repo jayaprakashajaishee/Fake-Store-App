@@ -11,6 +11,7 @@ import {
   CATEGORY_FILTER_REMOVE,
   SET_SEARCH,
   CLEAR_SEARCH,
+  CATEGORY_FILTER_RESET,
 } from "./constants";
 
 const onGetProducts = () => (dispatch) => {
@@ -55,6 +56,10 @@ const onApplyCategoryFilter = (category, checked) => (dispatch) => {
     : dispatch({ type: CATEGORY_FILTER_REMOVE, payload: category });
 };
 
+const resetCategory = () => (dispatch) => {
+  dispatch({ type: CATEGORY_FILTER_RESET });
+};
+
 const onSearch = (search) => (dispatch) => {
   dispatch({ type: SET_SEARCH, payload: search });
 };
@@ -69,4 +74,5 @@ export {
   onApplyCategoryFilter,
   onSearch,
   onClearSearch,
+  resetCategory,
 };

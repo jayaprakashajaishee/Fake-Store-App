@@ -5,7 +5,7 @@ import { Link } from "react-router-dom";
 function ProductCard({ product }) {
   return (
     <Link
-      to={`/product?${product.id}`}
+      to={`/product/${product.id}`}
       className="productCard"
       style={{ textDecoration: "none", color: "black" }}
     >
