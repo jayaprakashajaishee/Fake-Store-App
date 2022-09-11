@@ -2,13 +2,13 @@
 
 1. Fork and clone the repo
 2. Navigate to the _fake-store-app_ folder
-3. Run the comman **_npm start_** from the terminal.
+3. Run the command **_npm start_** from the terminal.
 
 ## Folder Structure
 
-The app is bootstraped by create-react-app, so all the folder structure follows the create-react-app.
+The app is bootstrapped by create-react-app, so all the folder structure follows the create-react-app.
 I have added all the custom reusable components inside the _components_ folder inside the _src_.
-All redux files such as store, reducers and actions are inside the _redux_ folder.
+All redux files such as store, reducers and actions are inside the _redux_ folder within _components_.
 
 ## change the number of products per page
 
@@ -17,7 +17,7 @@ All redux files such as store, reducers and actions are inside the _redux_ folde
   ```js
   const [productsPerPage, setProductsPerPage] = useState(5);
   ```
-- To change the products per page, change the value inside useState. By default set to 5.
+- To change the products per page, change the value inside useState. (By default set to 5 products per page)
 
 ## Libraries used
 
