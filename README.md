@@ -15,9 +15,9 @@ All redux files such as store, reducers and actions are inside the _redux_ folde
 - Go to src => components => Products => Products.js file.
 - Find the following line
   ```js
-  const [productsPerPage, setProductsPerPage] = useState(5);
+  const productsPerPage = 5;
   ```
-- To change the products per page, change the value inside useState. (By default set to 5 products per page)
+- To change the products per page, change the value of the **_productsPerPage_** variable. (By default set to 5 products per page)
 
 ## Libraries used
 
